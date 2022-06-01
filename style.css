@@ -1,0 +1,15 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 500px;
+    height: 500px;
+}
+.box {
+    border: 2px solid;
+    background-color: rgb(233, 233, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
