@@ -58,12 +58,20 @@ const displayController = ((doc) => {
                 checkWinner(gameBoard.winningCombos);
                 currentTarget.innerHTML = choice;
                 console.log(gameBoard.gameboard);
+                if (turn == 9){
+                    let tie = doc.querySelector('.winner');
+                    tie.innerHTML = `Its a tie.`;
+                    endDisplay.style.display = "flex";
+                }
             }
         })
     }})
 
+    let endDisplay = doc.querySelector('.endOverlay');
+
     let checkWinner = (winners) => {
         let roundWon = false;
+        let won = null;
         for (let i = 0; i <= 7; i++){
             const winCondition = winners[i];
             let a = gameBoard.gameboard[winCondition[0]];
@@ -74,18 +82,31 @@ const displayController = ((doc) => {
             }
             if (a === b && b === c) {
                 roundWon = true;
+                won = a;
                 break;
             }
         }
 
         if (roundWon == true){
-            let endDisplay = doc.querySelector('.endOverlay');
             let winner = doc.querySelector('.winner');
-
+            winner.innerHTML = `${won} Wins!`;
             endDisplay.style.display = "flex";
         }
     }
-    
 
+    
+    let resetGame = () => {
+        console.log("CLEAR");
+        gameBoard.gameboard = [null, null, null, null, null, null, null, null , null];
+        endDisplay.style.display = "none";
+        turn = 0;
+        boxes.forEach((box) => {
+            box.innerHTML = "";           
+        })
+    }
+
+    document.getElementById("yesbtn").addEventListener('click',()=>{
+        resetGame();
+    });
 
 })(document);

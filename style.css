@@ -45,12 +45,13 @@ body {
     flex-direction: column;
 }
 
-.reset {
+.reset,
+.winner {
     font-size: 5rem;
     color: white;
 }
 
-.yesbtn {
+#yesbtn {
     width: 200px;
     height: 50px;
     margin-top: 20px;
@@ -58,7 +59,7 @@ body {
     border: 1px solid black;
 }
 
-.yesbtn:hover {
+#yesbtn:hover {
     cursor: pointer;
     background-color: black;
     color: white;
