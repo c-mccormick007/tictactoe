@@ -1,8 +1,15 @@
 const gameBoard = (() => {
 
     let gameboard = [null, null, null, null, null, null, null, null , null];
+    let winningCombos = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6], [1,4,7], [2,5,8],
+        [0,4,8], [2,4,6]
+    ];
 
-    return {gameboard}
+    return {gameboard, winningCombos}
 
 })();
 
@@ -21,6 +28,7 @@ const displayController = ((doc) => {
     let turn = 0;
 
     const gameController = () => {
+
 
         if (turn % 2 === 0) {
             turn++;
@@ -47,11 +55,33 @@ const displayController = ((doc) => {
             }else {
                 let choice = gameController();
                 gameBoard.gameboard[Array.from(boxes).indexOf(currentTarget)] = choice;
+                checkWinner(gameBoard.winningCombos);
                 currentTarget.innerHTML = choice;
                 console.log(gameBoard.gameboard);
             }
         })
     }})
+
+    let checkWinner = (winners) => {
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++){
+            const winCondition = winners[i];
+            let a = gameBoard.gameboard[winCondition[0]];
+            let b = gameBoard.gameboard[winCondition[1]];
+            let c = gameBoard.gameboard[winCondition[2]];
+            if (a === null || b === null || c === null){
+                continue
+            }
+            if (a === b && b === c) {
+                roundWon = true;
+                break;
+            }
+        }
+
+        if (roundWon == true){
+            
+        }
+    }
     
 
 
