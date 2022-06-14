@@ -79,7 +79,10 @@ const displayController = ((doc) => {
         }
 
         if (roundWon == true){
-            
+            let endDisplay = doc.querySelector('.endOverlay');
+            let winner = doc.querySelector('.winner');
+
+            endDisplay.style.display = "flex";
         }
     }
     

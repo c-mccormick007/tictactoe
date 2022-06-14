@@ -29,3 +29,37 @@ body {
     cursor: pointer;
     background-color: aliceblue;
 }
+
+.endOverlay {
+    position: fixed;
+    left: 0;
+    right: 0; 
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.reset {
+    font-size: 5rem;
+    color: white;
+}
+
+.yesbtn {
+    width: 200px;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.yesbtn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
